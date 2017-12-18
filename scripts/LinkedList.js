@@ -63,16 +63,67 @@ export default class LinkedList {
   }
 
   find(data) {
-    let foundNode;
+    let foundNode = null;
     let currNode = this.head;
 
     while (currNode) {
       if (currNode.data === data) {
         foundNode = currNode;
+        break;
       } else {
         currNode = currNode.next;
       }
     }
     return foundNode;
   }
+
+// to delete 'friend' node:
+// Check if the data of my currNode matches the argument
+// if it doesn't, move on to the next node
+// repeat until currNode's data matches argument
+// delete currNode; by setting it's value to null 
+// then we need to reassign the currNode to currNode.next to keep them connected
+
+  delete(data) {
+    if (this.head.data === data) {
+      this.length--;
+      this.head = this.head.next;
+    }
+
+    let currNode = this.head;
+    let prevNode = null;
+
+    while (currNode) {
+      if (currNode.data === data) {
+        prevNode.next = currNode.next;
+        currNode = null;
+        this.length--;
+        break;
+      } else {
+        prevNode = currNode;
+        currNode = currNode.next;
+      }
+    }
+  }
+  // to delete 'darkness' node:
+  // find 'darkness' node
+  // check to see if the currNode's data matches the argument
+  // need to keep track of previous node
+  // if it does"
+  // - set prevNode's next to currNode's next
+
+  toArray(data) {
+    let array = [];
+    let currNode = this.head;
+
+    while (currNode) {
+      array.push(currNode.data);
+      currNode = currNode.next;
+    }
+
+    return array;
+  }
+  // loop through nodes
+  // push value of 'data' from each node into the empty list array
+  // return array
 }

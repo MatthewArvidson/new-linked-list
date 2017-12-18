@@ -244,14 +244,14 @@ describe('LINKED LIST', () => {
   });
 
   describe('DELETE', () => {
-    it.skip('deletes a solo node', () => {
+    it('deletes a solo node', () => {
       list.push('hello');
       list.delete('hello');
       expect(list.length).to.eq(0);
       expect(list.head).to.eq(null);
     });
 
-    it.skip('does not perform a delete when a node does not match', () => {
+    it('does not perform a delete when a node does not match', () => {
       list.push('hello');
       list.delete('goodbye');
       expect(list.length).to.eq(1);
@@ -267,7 +267,7 @@ describe('LINKED LIST', () => {
         list.push('friend');
       });
 
-      it.skip('changes the list length', () => {
+      it('changes the list length', () => {
         expect(list.head.next.data).to.eq('darkness');
         expect(list.length).to.eq(5);
 
@@ -279,7 +279,7 @@ describe('LINKED LIST', () => {
         expect(list.length).to.eq(3);
       });
 
-      it.skip('resets the next property on the node before the deleted node', () => {
+      it('resets the next property on the node before the deleted node', () => {
         expect(list.head.next.data).to.eq('darkness');
 
         list.delete('darkness');
@@ -291,7 +291,7 @@ describe('LINKED LIST', () => {
         expect(list.head.next.data).to.eq('old')
       });
 
-      it.skip('resets the list.head if deleting the first node', () => {
+      it('resets the list.head if deleting the first node', () => {
         expect(list.head.data).to.eq('hello');
         list.delete('hello');
         expect(list.head.data).to.eq('darkness');
@@ -301,7 +301,7 @@ describe('LINKED LIST', () => {
   });
 
   describe('TO ARRAY', () => {
-    it.skip('converts to an array', () => {
+    it('converts to an array', () => {
       expect(list.toArray()).to.deep.equal([]);
     });
 
@@ -313,7 +313,7 @@ describe('LINKED LIST', () => {
         list.push('Spain');
       });
 
-      it.skip('can convert to an array', () => {
+      it('can convert to an array', () => {
         expect(list.toArray()).to.deep.equal(['The', 'rain', 'in', 'Spain']);
       });
     });
