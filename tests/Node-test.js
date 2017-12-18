@@ -8,15 +8,15 @@ describe('NODE', () => {
     node = new Node('pizza')
   })
 
-  it('should be a thing', () => {
+  it.skip('should be a thing', () => {
     expect(node).to.exist
   })
 
-  it('should default next to null', () => {
+  it.skip('should default next to null', () => {
     expect(node.next).to.equal(null);
   })
 
-  it('should take data and assign it to data prop', () => {
+  it.skip('should take data and assign it to data prop', () => {
     expect(node.data).to.equal('pizza')
   })
 
