@@ -15,7 +15,7 @@ export default class LinkedList {
     this.length++;
   }
 
-  shift() {
+  shift(data) {
     let oldHead = this.head;
    
     if (this.length) {
@@ -32,18 +32,15 @@ export default class LinkedList {
       this.head = newNode;
     } else {
     let currentNode = this.head;
-    
       while(currentNode.next !== null) {
         currentNode = currentNode.next;
       }
       currentNode.next = newNode;
     }
-
   this.length++;
   }
 
   pop(data) {
-
     if(!this.length) {
       return null;
     } else {
@@ -53,23 +50,29 @@ export default class LinkedList {
       if(this.length === 1){
         this.head = null;
       }
-
-      // find last node
       while(currentNode.next !== null) {
         prevNode = currentNode;
         currentNode = currentNode.next;
     }
-
-    
-
     if(prevNode) {
       prevNode.next = null;
     }
-    
     this.length --;
-
     return currentNode;
     }
   }
 
+  find(data) {
+    let foundNode;
+    let currNode = this.head;
+
+    while (currNode) {
+      if (currNode.data === data) {
+        foundNode = currNode;
+      } else {
+        currNode = currNode.next;
+      }
+    }
+    return foundNode;
+  }
 }
